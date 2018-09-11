@@ -1,0 +1,48 @@
+<my-head></my-head>
+<div class="container">
+    <header>
+        <h3>Customer Orders</h3>
+    </header>
+    
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="indent">
+                    <br/>
+                    <br/>
+                    <h5>Orders for {{ Customer.firstName + ' ' + Customer.lastName }}</h5>
+                    {{Customer.address}}
+                    <br />
+                    {{Customer.city}}
+                    <br /><br />
+                </div>
+            </div>                
+            <br /><br />
+            
+        </div>
+        <table class="table table-striped">
+            <thead style="background:rgb(0, 195, 255)">
+              <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Order Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let order of Orders">
+                <td>{{order.product}}</td>
+                <td>{{order.price}}</td>
+                <td>{{order.quantity}}</td>
+                <td>{{order.orderTotal}}</td>
+              </tr>
+              <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>{{Total}}</td>
+              </tr>
+              
+            </tbody>
+          </table>
+    
+</div>

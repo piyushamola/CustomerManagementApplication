@@ -1,0 +1,31 @@
+<div class="container">
+<my-head></my-head>
+
+<h2>All Customer Orders</h2>
+<div *ngFor="let customer of customers">
+    <div class="indent">
+        <a [routerLink]="['/customerorders',customer.id]">{{customer.firstName}} {{customer.lastName}}</a>
+        
+        <table class="table table-striped">
+            <thead style="background:rgb(0, 195, 255)">
+              <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Order Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let order of [customer.id]| myCustomerOrders:orders">
+                <td>{{order.product}}</td>
+                <td>{{order.price}}</td>
+                <td>{{order.quantity}}</td>
+                <td>{{order.orderTotal}}</td>
+              </tr>
+            
+              
+            </tbody>
+          </table>
+    </div>
+</div>
+</div>

@@ -1,0 +1,46 @@
+
+<my-head></my-head>
+
+  <div class="container">
+     <h1>Customer</h1>
+           <br/>
+    <div class="row">
+      <div class="col-sm-3">
+          First Name:
+                <br />
+                <input  type="text" [(ngModel)]="firstName" placeholder="First Name"> <!-- ng-model apply -->
+      </div>
+      <div class="col-sm-3">
+          Last Name:
+                <br />
+                <input  type="text" [(ngModel)]="lastName" placeholder="First Name"> <!-- ng-model apply -->
+      </div>
+      <div class="col-sm-3">
+          City Name:
+                <br />
+                <input  type="text" [(ngModel)]="city" placeholder="First Name"> <!-- ng-model apply -->
+      </div>
+     <div class="col-sm-3">
+       <br/>
+      <button id="submitCustomer" class="btn btn-success" type="button" 
+      [disabled]="!firstName || !lastName || !city" (click)="insertCustomer(firstName,lastName,city)">Add Customer
+    </button>
+    </div>
+   
+ </div>
+
+  <div class="row " >
+  <div class="card col-sm-3 top-buffer" style="width:auto; height:auto;" *ngFor="let customer of customers">
+    <div class="card-body" >
+      <h5 class="card-title">{{customer.firstName +' '+ customer.lastName}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{customer.city}}</h6>
+     
+     <p> <a [routerLink]="['/customerorders',customer.id]">View {{customer.id | myOrders:orders}} Orders </a> </p>
+   
+    </div>
+  </div>
+  </div>
+  
+
+    
+  </div>
